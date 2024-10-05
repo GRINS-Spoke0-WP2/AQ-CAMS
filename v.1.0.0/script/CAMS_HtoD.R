@@ -8,6 +8,7 @@ library(doParallel)
 library(foreach)
 library(abind)
 registerDoParallel()
+setwd("AQ-CAMS")
 
 CAMSfiles <-
   list.files(path = "data/AQ/CAMS/cropped",
