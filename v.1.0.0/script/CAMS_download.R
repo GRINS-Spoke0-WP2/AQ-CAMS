@@ -1,7 +1,7 @@
 library(ncdf4)
 library(ecmwfr)
 setwd("AQ-CAMS")
-source("script/AQ/CAMS/functions.R")
+source("v.1.0.0/script/functions.R")
 
 months <- c(paste0("0",1:9),"10","11","12")
 y<-2013:2023
