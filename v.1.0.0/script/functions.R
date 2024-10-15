@@ -91,17 +91,17 @@ download_CAMS <- function(m1, y1, user) {
     for (y in y1) {
       print(paste("m=", m, "y=", y))
       CAMS_request(m, y, user)
-      unzip("download.zip", exdir = "data/AQ/CAMS/unzipped")
+      unzip("download.zip", exdir = "v.1.0.0/data/unzipped")
       file.remove("download.zip")
-      files <- list.files(path = "data/AQ/CAMS/unzipped", pattern = "*.nc")
+      files <- list.files(path = "v.1.0.0/data/unzipped", pattern = "*.nc")
       B_IT <- c(6, 19, 35, 48)
       for (nf in 1:length(files)) {
         nc_cut_CAMS(
           files[nf],
           B_IT,
           paste0("ITALY_", files[nf]),
-          "data/AQ/CAMS/unzipped",
-          "data/AQ/CAMS/cropped"
+          "v.1.0.0/data/unzipped",
+          "v.1.0.0/data/cropped"
         )
         file.remove(paste0("data/AQ/CAMS/unzipped/", files[nf]))
       }

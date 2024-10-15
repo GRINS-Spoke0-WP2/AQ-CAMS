@@ -17,3 +17,8 @@ for (i in lf) {
   y<-y[130:1,,]
   save(y,file=paste0("v.1.0.0/data/output/",name,".rda"))
 }
+
+# years 2020, 2022, 2023 are affected by geo-misalligned grids
+# due to input data (they are built on different grids)
+# a possible approach for allignment is available in:
+# FRK-DataFusion/v.1.0.0/script/Modelling.R - section A.b1

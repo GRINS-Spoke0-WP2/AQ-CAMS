@@ -11,7 +11,7 @@ registerDoParallel()
 setwd("AQ-CAMS")
 
 CAMSfiles <-
-  list.files(path = "data/AQ/CAMS/cropped",
+  list.files(path = "v.1.0.0/data/cropped",
              pattern = ".nc")
 CAMSpoll <-
   c("co", "nh3", "nmvoc", "no", "no2", "o3", "pm10", "pm2p5", "so2")
@@ -45,7 +45,7 @@ for (i in 1:length(CAMSfiles_p)) {
         foreach (j = CAMSfiles_p_y,
                  .packages = c("ncdf4","abind"),
                  .combine = rbind) %dopar% {
-                   nc <- nc_open(paste0("data/AQ/CAMS/cropped/", j))
+                   nc <- nc_open(paste0("v.1.0.0/data/cropped/", j))
                    aq_pol <- nc$var[[1]][[2]]
                    print(paste(aq_pol, (
                      which(CAMSfiles_pi == j) / length(CAMSfiles_pi)
@@ -91,7 +91,7 @@ for (i in 1:length(CAMSfiles_p)) {
       # source(paste0(pathHPC,"/Script/CAMS/HPC/checking_H_t_D_CAMS_HPC.R")) #checking
       save(
         grid_all,
-        file = paste0("data/AQ/CAMS/1p1y/CAMS_1p1y_",
+        file = paste0("v.1.0.0/data/1p1y/CAMS_1p1y_",
           substr(names(grid_all)[4],5,10),
           "_",
           y,
