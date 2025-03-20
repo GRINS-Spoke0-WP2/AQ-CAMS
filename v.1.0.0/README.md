@@ -8,10 +8,10 @@ The following steps are made:
 2. [Change of temporal resolution](#CAMS-2-Change-of-temporal-resolution)
 3. [Export](#CAMS-3-Export)
 ## CAMS 1: Download & regional crop
-The download is made automatically within the script [`CAMS_download.R`](script/AQ/CAMS/CAMS_download.R). The download is quite fast but it is downloaded a zip file containing all the European region.
+The download is made automatically within the script [`CAMS_download.R`](script/CAMS_Download.R). The download is quite fast but it is downloaded a zip file containing all the European region.
 
 ## CAMS 2: Changing temporal resolution
-Data are hourly, therefore we keep the minimum, 1st quartile, mean, medium, 3rd quartile, maximum of the day. This step is made in the script [`CAMS_HtoD.R`](script/AQ/CAMS/CAMS_HtoD.R).
+Data are hourly, therefore we keep the minimum, 1st quartile, mean, medium, 3rd quartile, maximum of the day. This step is made in the script [`CAMS_HtoD.R`](script/CAMS_HtoD.R).
 
 ## CAMS 3: Export
-Data are exported in matrix for saving dimension in [`CAMS_Export.R`](script/AQ/CAMS/CAMS_HtoD.R).
+Data are exported in matrix for saving dimension in [`CAMS_Export.R`](script/CAMS_HtoD.R).
