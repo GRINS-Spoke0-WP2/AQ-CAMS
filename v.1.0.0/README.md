@@ -14,4 +14,4 @@ The download is made automatically within the script [`CAMS_Download.R`](script/
 Data are hourly, therefore we keep the minimum, 1st quartile, mean, medium, 3rd quartile, maximum of the day. This step is made in the script [`CAMS_HtoD.R`](script/CAMS_HtoD.R).
 
 ## CAMS 3: Export
-Data are exported in matrix for saving dimension in [`CAMS_Export.R`](script/CAMS_HtoD.R).
+Data are exported in matrix for saving dimension in [`CAMS_export.R`](script/CAMS_export.R).
