@@ -1,5 +1,5 @@
-CAMS_request <- function(month,year,user){
-  if (year > 2021) {
+CAMS_request <- function(month,year,user,key){
+  if (year > 2023) {
     dataset<-"interim_reanalysis"
   }else{
     dataset<-"validated_reanalysis"
@@ -9,8 +9,9 @@ CAMS_request <- function(month,year,user){
     month <- paste0("0",month)
   }
   year<-as.character(year)
-  key<-wf_get_key(user,service = "ads")
-  wf_set_key(user = user,key = key,service = "ads")
+  # key<-wf_get_key(user) #,service = "ads"
+  wf_set_key(key = key, user=user) #,service = "ads"
+  # wf_get_key()
   request <- list(
     type = dataset,
     year = year,
@@ -86,11 +87,11 @@ nc_cut_CAMS <- function(ncfile,
   nc_close(ncout)
 }
 
-download_CAMS <- function(m1, y1, user) {
+download_CAMS <- function(m1, y1, user, key) {
   for (m in m1) {
     for (y in y1) {
       print(paste("m=", m, "y=", y))
-      CAMS_request(m, y, user)
+      CAMS_request(m, y, user, key)
       unzip("download.zip", exdir = "v.1.0.0/data/unzipped")
       file.remove("download.zip")
       files <- list.files(path = "v.1.0.0/data/unzipped", pattern = "*.nc")
@@ -103,7 +104,7 @@ download_CAMS <- function(m1, y1, user) {
           "v.1.0.0/data/unzipped",
           "v.1.0.0/data/cropped"
         )
-        file.remove(paste0("data/AQ/CAMS/unzipped/", files[nf]))
+        file.remove(paste0("v.1.0.0/data/unzipped/", files[nf]))
       }
     }
   }
